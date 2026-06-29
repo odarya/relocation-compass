@@ -689,7 +689,7 @@
       <p>במשך שנים בניתי קריירה בעולם הטכנולוגיה – כמנהלת מוצר, ובהמשך כ-VP Product בחברות תוכנה גדולות וקטנות. קריירה שאהבתי, ושבניתי בקפידה.</p>
       <p>ואז עזבתי הכול ועברנו לארצות הברית – לרילוקיישן בעקבות הקריירה של בן זוגי, עם שני ילדים קטנים ושלישי שנולד שם.</p>
       <p>שם למדתי מקרוב מה זה להתחיל מחדש במקום שבו אף אחד לא מכיר אותך. מה זה להגדיר מחדש את הזהות המקצועית שלך, למצוא מחדש את המקום שלך, ולגלות מי את כשכל מה שהיה מוכר נשאר מאחור.</p>
-      <p>לפני שחזרנו לארץ, בחרנו לצאת להרפתקה אחרת לגמרי: עזבנו הכול והפלגנו עם המשפחה במשך כמעט שנתיים בים הקריבי.</p>
+      <p>לפני שחזרנו לארץ, בחרנו לצאת להרפתקה אחרת לגמרי: עזבנו הכול והפלגנו עם המשפחה במשך כמעט שנתיים בקאריביים.</p>
       <p>בלי משרד. בלי תפקיד. בלי תכנית ברורה.</p>
       <p>זה היה מסע מופלא – ובסופו חיכתה לנו עוד התחלה חדשה: חזרה לישראל, והזדמנות נוספת לשאול את עצמי: מי אני עכשיו, ואיך אני רוצה שהפרק הבא שלי ייראה?</p>
       <p>למדתי, שוב ושוב, שהמעברים הגדולים של החיים יכולים להיות גם נקודת אובדן – וגם הזדמנות נדירה לצמיחה.</p>
@@ -708,9 +708,8 @@
 
     <div class="form-card reveal">
       <!--
-        הערה טכנית: יש לחבר טופס זה לשירות שליחת מיילים אמיתי לפני פרסום
-        (לדוגמה Mailchimp, ConvertKit, Google Forms או Formspree).
-        כרגע ה-JS מציג הודעת תודה בצד הלקוח בלבד, ולא שולח את הנתונים לשום מקום.
+        הערה טכנית: הטופס מחובר ל-Google Form (ראו GFORM_ACTION ב-script בתחתית הקובץ).
+        כל שליחה נכנסת כשורה ל-Google Sheet המקושר לטופס.
       -->
       <form id="waitlistForm">
         <div class="field">
@@ -724,9 +723,10 @@
         <div class="field">
           <label for="status">איפה את נמצאת היום?</label>
           <select id="status" name="status">
-            <option value="before">עדיין בארץ, רילוקיישן בדרך</option>
-            <option value="abroad">גרה בחו"ל כרגע</option>
-            <option value="returned">חזרתי לארץ</option>
+            <option value="עדיין בארץ, בדרך לרילוקיישן">עדיין בארץ, בדרך לרילוקיישן</option>
+            <option value="נמצאת ברילוקיישן">נמצאת ברילוקיישן</option>
+            <option value="לפני חזרה לארץ מרילוקיישן">לפני חזרה לארץ מרילוקיישן</option>
+            <option value="חזרתי לארץ">חזרתי לארץ</option>
           </select>
         </div>
         <div class="field">
@@ -790,11 +790,28 @@
 </footer>
 
 <script>
-  // FAQ + form + reveal-on-scroll. No external data is sent anywhere.
+  // FAQ + form + reveal-on-scroll.
+  // הטופס נשלח ברקע ל-Google Form (ללא ניווט/רענון), והתשובות נכנסות ל-Google Sheet המקושר.
   document.getElementById('waitlistForm').addEventListener('submit', function(e){
     e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('thanksMsg').style.display = 'block';
+    var form = this;
+    var GFORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSdu2sIe0C5lPRe0gchw64VZgHRwZumYxmOXS5nR4ysu1tBA2Q/formResponse';
+
+    var data = new FormData();
+    data.append('entry.1099389316', document.getElementById('name').value);
+    data.append('entry.1058322193', document.getElementById('email').value);
+    data.append('entry.1074006024', document.getElementById('status').value);
+    data.append('entry.434559467', document.getElementById('message').value);
+
+    function showThanks(){
+      form.style.display = 'none';
+      document.getElementById('thanksMsg').style.display = 'block';
+    }
+
+    // mode:'no-cors' means we can't read the response, but the submission still registers in the Sheet.
+    fetch(GFORM_ACTION, { method: 'POST', mode: 'no-cors', body: data })
+      .then(showThanks)
+      .catch(showThanks);
   });
 
   // Hero typewriter: "Re" stays fixed, suffix types in / deletes out, looping.
