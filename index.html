@@ -20,7 +20,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -53,9 +53,18 @@
   }
   img{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
+  .sr-only{
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
 
   h1,h2,h3{
-    font-family:'Frank Ruhl Libre', serif;
+    font-family:'Rubik', sans-serif;
     font-weight:500;
     margin:0;
     color:var(--ink);
@@ -105,21 +114,23 @@
     margin:0 auto;
   }
   .logo{
-    font-family:'Frank Ruhl Libre', serif;
-    font-size:22px;
+    font-family:'Rubik', sans-serif;
+    font-size:36px;
     font-weight:600;
     color:var(--ocean-deep);
     display:flex;
-    align-items:center;
-    gap:8px;
+    flex-direction:column;
+    align-items:flex-start;
+    line-height:1.15;
+    gap:4px;
   }
   .logo span{
     font-family:'Assistant', sans-serif;
-    font-size:12px;
+    font-size:17px;
     font-weight:500;
     color:var(--ink-faint);
     display:block;
-    margin-top:2px;
+    margin-top:0;
   }
   .btn{
     display:inline-flex;
@@ -191,6 +202,36 @@
     position:absolute; inset:0;
     background:linear-gradient(180deg, rgba(43,38,32,0) 55%, rgba(34,30,25,0.45) 100%);
   }
+  .hero-typewriter{
+    background:linear-gradient(150deg, var(--ocean-deep) 0%, var(--ocean) 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+  }
+  .tw-wrap{
+    direction:ltr;
+    font-family:'Rubik', sans-serif;
+    font-weight:600;
+    font-size:clamp(34px, 5.4vw, 60px);
+    color:var(--white);
+    letter-spacing:-0.01em;
+    white-space:nowrap;
+    display:inline-flex;
+    align-items:baseline;
+  }
+  .tw-suffix{ color:var(--sand); }
+  .tw-cursor{
+    margin-right:0;
+    margin-left:3px;
+    color:var(--sand);
+    font-weight:400;
+    animation:tw-blink 0.9s steps(1) infinite;
+  }
+  @keyframes tw-blink{
+    0%,50%{ opacity:1; }
+    50.01%,100%{ opacity:0; }
+  }
   .hero-media-tag{
     position:absolute;
     bottom:24px;
@@ -229,7 +270,7 @@
     padding:0 24px;
   }
   .strip-overlay p{
-    font-family:'Frank Ruhl Libre', serif;
+    font-family:'Rubik', sans-serif;
     color:var(--white);
     font-size:30px;
     max-width:720px;
@@ -288,7 +329,7 @@
     border-radius:24px;
     overflow:hidden;
     box-shadow:var(--shadow);
-    aspect-ratio:3/4;
+    aspect-ratio:4/3;
   }
   .split-media img{ width:100%; height:100%; object-fit:cover; }
   .split-text p{
@@ -322,7 +363,7 @@
     align-items:flex-start;
   }
   .outcome-num{
-    font-family:'Frank Ruhl Libre', serif;
+    font-family:'Rubik', sans-serif;
     font-size:34px;
     color:var(--sand-deep);
     line-height:1;
@@ -353,8 +394,10 @@
     justify-content:center;
     box-shadow:var(--shadow);
     margin-bottom:22px;
+    overflow:hidden;
   }
   .avatar svg{ width:84px; height:84px; opacity:.85; }
+  .avatar img{ width:100%; height:100%; object-fit:cover; object-position:center; }
   .avatar-cap{ font-size:14px; color:var(--ink-faint); line-height:1.6; max-width:230px; }
   .founder-text h2{ font-size:34px; margin-bottom:24px; }
   .founder-text p{ font-size:18px; color:var(--ink-soft); margin:0 0 20px; }
@@ -478,7 +521,7 @@
   }
   footer a{ color:var(--ocean-deep); font-weight:600; }
   .footer-logo{
-    font-family:'Frank Ruhl Libre', serif;
+    font-family:'Rubik', sans-serif;
     font-size:19px;
     color:var(--ocean-deep);
     margin-bottom:14px;
@@ -513,6 +556,9 @@
     .btn{ padding:13px 22px; font-size:14px; }
     .hero-ctas{ flex-direction:column; align-items:stretch; }
     .hero-ctas .btn{ width:100%; }
+    .logo{ font-size:24px; }
+    .logo span{ font-size:13px; }
+    .tw-wrap{ font-size:30px; }
   }
 </style>
 </head>
@@ -530,7 +576,6 @@
   <div class="container">
     <div class="hero-grid">
       <div class="reveal">
-        <div class="eyebrow">לנשים ישראליות ברילוקיישן</div>
         <h1>עברת מדינה.<br>את לא חייבת לאבד את עצמך בדרך.</h1>
         <p class="hero-sub">מרחב לנשים ברילוקיישן שרוצות לבנות מחדש זהות, קריירה ומשמעות – בלי לוותר על עצמן.</p>
         <div class="hero-ctas">
@@ -539,9 +584,11 @@
         </div>
         <p class="hero-note">בלי מחויבות. רק כדי שתהיי הראשונה לדעת כשזה קורה.</p>
       </div>
-      <div class="hero-media reveal">
-        <img src="https://images.unsplash.com/photo-1696609432270-84cf46abb26a?auto=format&fit=crop&w=1200&q=80" alt="אישה מביטה באופק הים בשעת שקיעה" loading="eager">
-        <p class="hero-media-tag">איפשהו בין הבית שעזבת לבית שעדיין לא מצאת</p>
+      <div class="hero-media hero-typewriter reveal">
+        <div class="tw-wrap" dir="ltr" aria-hidden="true">
+          <span class="tw-prefix">Re</span><span class="tw-suffix" id="twSuffix"></span><span class="tw-cursor">|</span>
+        </div>
+        <span class="sr-only">Relocation. Reinvent. Reconnect. Rebuild. Rediscover.</span>
       </div>
     </div>
   </div>
@@ -551,7 +598,7 @@
 <div class="strip">
   <img src="https://images.unsplash.com/photo-1759784839707-a32c910a7747?auto=format&fit=crop&w=1600&q=80" alt="מבט מחלון מטוס על עננים" loading="lazy">
   <div class="strip-overlay">
-    <p class="reveal">ארזת בית שלם. השאלה היא מה ארזת בשבילך.</p>
+    <p class="reveal">ארזת בית שלם. אבל מה ארזת בשבילך?</p>
   </div>
 </div>
 
@@ -577,7 +624,7 @@
 <section class="section bg-cream">
   <div class="container split">
     <div class="split-media reveal">
-      <img src="https://images.unsplash.com/photo-1505244783088-5a36f166e5b5?auto=format&fit=crop&w=1000&q=80" alt="אישה הולכת בין דיונות חול, פוסעת לכיוון האופק" loading="lazy">
+      <img src="LastBox.jpeg" alt="קופסת אריזה עם הכיתוב 'אישי' וצמח באור שמש חם בחדר ריק" loading="lazy">
     </div>
     <div class="split-text reveal">
       <div class="eyebrow">נקודת מבט אחרת</div>
@@ -611,11 +658,15 @@
       </div>
       <div class="outcome">
         <div class="outcome-num">04</div>
-        <div><h3>ביטחון עצמי</h3><p>חיזוק הביטחון העצמי, גם בלי התפקיד, הצוות או הכרטיס ביקור שהיו לך פעם.</p></div>
+        <div><h3>ביטחון עצמי</h3><p>לבנות מחדש ביטחון עצמי שאינו תלוי בתפקיד, במעמד או בהכרה חיצונית – אלא במי שאת באמת.</p></div>
       </div>
       <div class="outcome">
         <div class="outcome-num">05</div>
         <div><h3>חיים עם משמעות</h3><p>יצירת חיים שיש בהם מקום, זמן ומשמעות גם בשבילך – לא רק בשביל כל מי שאת דואגת לו.</p></div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-num">06</div>
+        <div><h3>שייכות</h3><p>בניית תחושת שייכות במקום החדש – לקהילה, לאנשים ולחיים שאת יוצרת לעצמך, גם כשהכול עדיין מרגיש זר.</p></div>
       </div>
     </div>
   </div>
@@ -625,27 +676,25 @@
 <section class="section bg-cream">
   <div class="container founder-grid">
     <div class="avatar-wrap reveal">
-      <!-- הוסיפי שם: ניתן להחליף את המונוגרמה הזו בתמונה אישית -->
+      <!-- תמונה אישית: darya.jpg חייבת להיות באותה תיקייה כמו index.html (וגם להיות מועלית ל-GitHub) -->
       <div class="avatar">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 40C12 28 20 48 32 36C44 24 52 44 60 32" stroke="#3B5563" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="32" cy="18" r="9" stroke="#3B5563" stroke-width="2.4"/>
-        </svg>
+        <img src="darya.jpg" alt="דריה, מאמנת ומנטורית, מייסדת מעבר">
       </div>
-      <p class="avatar-cap">VP Product לשעבר · מאמנת ומנטורית מוסמכת<br>למעברי חיים גדולים</p>
+      <p class="avatar-cap">דריה אליאס</p>
     </div>
     <div class="founder-text reveal">
       <div class="eyebrow">נעים להכיר</div>
       <h2>הסיפור הקצר שלי, ולמה אני עושה את זה</h2>
-      <p><!-- הוסיפי שם: אפשר לפתוח את הפסקה הזו ב"אני [שם]." --> לפני שהתחלתי ללוות נשים בתקופות מעבר, עברתי כמה בעצמי. הייתי VP Product ומנהלת מוצר בכירה בארגוני טכנולוגיה, עם קריירה שבנתי בקפידה במשך שנים – ואז עברנו לארצות הברית, ולמדתי מקרוב מה זה לבנות זהות וקריירה ממקום שעדיין לא מכיר אותך.</p>
-      <p>כמה שנים אחר כך עזבנו הכול בכיוון אחר לחלוטין: יצאנו עם המשפחה להפלגה של כשנתיים בים הקריבי. בלי משרד, בלי תפקיד, בלי שום דבר שמגדיר מי אני בלי כרטיס ביקור. זה היה אחד הפרקים המשמעותיים בחיי – ולא הפרק היחיד שבו נאלצתי להמציא את עצמי מחדש.</p>
-      <p>היום אני מלווה נשים, כמאמנת מוסמכת, בתקופות המעבר הגדולות של החיים שלהן – עם בהירות, אומץ וכנות. בלי הנחות על מי שאת צריכה להיות, ובלי לוותר על מי שאת באמת.</p>
-      <div class="founder-tags">
-        <span class="tag">VP Product לשעבר</span>
-        <span class="tag">מאמנת ומנטורית מוסמכת</span>
-        <span class="tag">חיה רילוקיישן בעצמה</span>
-        <span class="tag">כשנתיים בהפלגה במשפחה</span>
-      </div>
+      <p>לפני שהתחלתי ללוות נשים בתקופות מעבר, עברתי לא מעט כאלה בעצמי.</p>
+      <p>במשך שנים בניתי קריירה בעולם הטכנולוגיה – כמנהלת מוצר, ובהמשך כ-VP Product בחברות תוכנה גדולות וקטנות. קריירה שאהבתי, ושבניתי בקפידה.</p>
+      <p>ואז עזבתי הכול ועברנו לארצות הברית – לרילוקיישן בעקבות הקריירה של בן זוגי, עם שני ילדים קטנים ושלישי שנולד שם.</p>
+      <p>שם למדתי מקרוב מה זה להתחיל מחדש במקום שבו אף אחד לא מכיר אותך. מה זה להגדיר מחדש את הזהות המקצועית שלך, למצוא מחדש את המקום שלך, ולגלות מי את כשכל מה שהיה מוכר נשאר מאחור.</p>
+      <p>לפני שחזרנו לארץ, בחרנו לצאת להרפתקה אחרת לגמרי: עזבנו הכול והפלגנו עם המשפחה במשך כמעט שנתיים בים הקריבי.</p>
+      <p>בלי משרד. בלי תפקיד. בלי תכנית ברורה.</p>
+      <p>זה היה מסע מופלא – ובסופו חיכתה לנו עוד התחלה חדשה: חזרה לישראל, והזדמנות נוספת לשאול את עצמי: מי אני עכשיו, ואיך אני רוצה שהפרק הבא שלי ייראה?</p>
+      <p>למדתי, שוב ושוב, שהמעברים הגדולים של החיים יכולים להיות גם נקודת אובדן – וגם הזדמנות נדירה לצמיחה.</p>
+      <p>היום, כמאמנת מוסמכת, אני מלווה נשים בתקופות המעבר הגדולות של החיים, כדי לעזור להן לבנות את הפרק הבא שלהן בבהירות, באומץ ובדרך שמתאימה להן באמת.</p>
+      <p>בלי הנחות מוקדמות על מי שאת אמורה להיות. ובלי לוותר על מי שאת באמת.</p>
     </div>
   </div>
 </section>
@@ -735,7 +784,7 @@
   <div class="container">
     <div class="footer-logo">מעבר</div>
     <p>מרחב לנשים ברילוקיישן · נבנה בכוונה, לאט ובאהבה.</p>
-    <p><a href="mailto:hello@example.com">hello@example.com</a> <!-- כתובת מייל placeholder, יש להחליף --></p>
+    <p><a href="mailto:darya@datayoga.io">darya@datayoga.io</a></p>
     <p>© 2026 מעבר. כל הזכויות שמורות.</p>
   </div>
 </footer>
@@ -747,6 +796,43 @@
     this.style.display = 'none';
     document.getElementById('thanksMsg').style.display = 'block';
   });
+
+  // Hero typewriter: "Re" stays fixed, suffix types in / deletes out, looping.
+  (function(){
+    var el = document.getElementById('twSuffix');
+    if(!el) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var words = ['location','invent','connect','build','discover'];
+    if(reduceMotion){ el.textContent = words[0]; return; }
+
+    var wordIndex = 0, charIndex = 0, deleting = false;
+    var typeSpeed = 90, deleteSpeed = 45, holdTime = 1600, pauseBeforeType = 300;
+
+    function tick(){
+      var word = words[wordIndex];
+      if(!deleting){
+        charIndex++;
+        el.textContent = word.slice(0, charIndex);
+        if(charIndex === word.length){
+          deleting = true;
+          setTimeout(tick, holdTime);
+          return;
+        }
+        setTimeout(tick, typeSpeed);
+      } else {
+        charIndex--;
+        el.textContent = word.slice(0, charIndex);
+        if(charIndex === 0){
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(tick, pauseBeforeType);
+          return;
+        }
+        setTimeout(tick, deleteSpeed);
+      }
+    }
+    setTimeout(tick, 700);
+  })();
 
   var revealEls = document.querySelectorAll('.reveal');
   var io = new IntersectionObserver(function(entries){
