@@ -279,13 +279,13 @@
   }
 
   /* ===== generic section spacing ===== */
-  .section{ padding:120px 0; }
-  .section-tight{ padding:90px 0; }
+  .section{ padding:80px 0; }
+  .section-tight{ padding:60px 0; }
   .section-head{
     max-width:760px;
-    margin:0 0 64px;
+    margin:0 0 44px;
   }
-  .section-head.center{ margin:0 auto 64px; text-align:center; }
+  .section-head.center{ margin:0 auto 44px; text-align:center; }
   .section-head h2{
     font-size:36px;
     line-height:1.45;
@@ -346,6 +346,44 @@
   .reverse .split-media{ order:2; }
   .reverse .split-text{ order:1; }
 
+  /* ===== Vision / Glimpse ===== */
+  .glimpse-intro{
+    text-align:center;
+    max-width:620px;
+    margin:0 auto 52px;
+    color:var(--ink-soft);
+    font-size:18px;
+    line-height:1.8;
+  }
+  .glimpse-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+  .glimpse-card{
+    background:var(--white);
+    border:1px solid var(--sand);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .glimpse-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--clay);
+    flex-shrink:0;
+    margin-top:9px;
+  }
+  .glimpse-card p{
+    margin:0;
+    font-size:16px;
+    color:var(--ink-soft);
+    line-height:1.75;
+  }
+
   /* ===== Transformation ===== */
   .outcomes{
     display:grid;
@@ -362,15 +400,17 @@
     gap:20px;
     align-items:flex-start;
   }
-  .outcome-num{
-    font-family:'Rubik', sans-serif;
-    font-size:34px;
-    color:var(--sand-deep);
-    line-height:1;
-    flex-shrink:0;
+  .outcome-icon{ color:var(--ocean); flex-shrink:0; margin-top:3px; }
+  .outcome h3{ font-size:18px; font-weight:600; margin-bottom:8px; color:var(--ink); }
+  .outcome p{ font-size:15px; color:var(--ink-soft); margin:0; line-height:1.7; }
+  .outcome-intro{
+    text-align:center;
+    max-width:600px;
+    margin:0 auto 44px;
+    color:var(--ink-soft);
+    font-size:17px;
+    line-height:1.8;
   }
-  .outcome h3{ font-size:19px; margin-bottom:8px; }
-  .outcome p{ font-size:16px; color:var(--ink-soft); margin:0; }
 
   /* ===== Founder ===== */
   .founder-grid{
@@ -460,6 +500,33 @@
     color:var(--ink-faint);
     margin-top:16px;
   }
+  .wa-divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:28px 0 20px;
+    color:var(--ink-faint);
+    font-size:13px;
+  }
+  .wa-divider::before,.wa-divider::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:rgba(43,38,32,0.15);
+  }
+  .wa-section{ text-align:center; }
+  .wa-section p{ font-size:15px; color:var(--ink-soft); margin:0 0 12px; }
+  .wa-inline-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:#25D366;
+    font-weight:600;
+    font-size:16px;
+    text-decoration:none;
+    transition:opacity .2s;
+  }
+  .wa-inline-link:hover{ opacity:0.8; }
   .thanks{
     display:none;
     text-align:center;
@@ -543,12 +610,15 @@
     .founder-text{ text-align:center; }
     .founder-tags{ justify-content:center; }
     .feel-grid{ grid-template-columns:1fr; }
-    .outcomes{ grid-template-columns:1fr; }
-    .section{ padding:80px 0; }
+    .glimpse-grid{ grid-template-columns:1fr; }
+    .section{ padding:56px 0; }
     .section-head h2, .split-text h2, .founder-text h2, .waitlist-wrap h2{ font-size:28px; }
     .strip{ height:240px; margin-top:70px; }
     .strip-overlay p{ font-size:22px; }
     .form-card{ padding:28px 22px; }
+  }
+  @media (max-width: 768px){
+    .outcomes{ grid-template-columns:1fr; }
   }
   @media (max-width: 600px){
     .container, .nav-row{ padding:0 20px; }
@@ -567,7 +637,7 @@
 <header>
   <div class="nav-row">
     <div class="logo">מעבר<span>מרחב לנשים ברילוקיישן</span></div>
-    <a href="#waitlist" class="btn btn-primary btn-sm">הצטרפי לרשימת ההמתנה</a>
+    <a href="#waitlist" class="btn btn-primary btn-sm">אני רוצה לקבל עדכון</a>
   </div>
 </header>
 
@@ -579,10 +649,10 @@
         <h1>עברת מדינה.<br>את לא חייבת לאבד את עצמך בדרך.</h1>
         <p class="hero-sub">מרחב לנשים ברילוקיישן שרוצות לבנות מחדש זהות, קריירה ומשמעות – בלי לוותר על עצמן.</p>
         <div class="hero-ctas">
-          <a href="#waitlist" class="btn btn-primary">אני רוצה לשמוע כשזה ייפתח</a>
+          <a href="#waitlist" class="btn btn-primary">אני רוצה לקבל עדכון כשהמחזור הראשון ייפתח</a>
           <a href="#feel" class="btn btn-ghost">ספרי לי יותר</a>
         </div>
-        <p class="hero-note">בלי מחויבות. רק כדי שתהיי הראשונה לדעת כשזה קורה.</p>
+        <p class="hero-note">בלי מחויבות. רק כדי שתהיי בין הראשונות לדעת.</p>
       </div>
       <div class="hero-media hero-typewriter reveal">
         <div class="tw-wrap" dir="ltr" aria-hidden="true">
@@ -636,37 +706,146 @@
   </div>
 </section>
 
+<!-- ===== VISION ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <h2>ואולי, עם הזמן, החיים כאן יכולים להתחיל להרגיש אחרת.</h2>
+    </div>
+    <p class="glimpse-intro reveal">רילוקיישן משנה הרבה דברים, אבל הוא גם יוצר הזדמנות לעצור, לדייק ולבנות מחדש חלקים בחיים. לא כדי לחזור למי שהיית – אלא כדי ליצור פרק חדש שמתאים למי שאת היום.</p>
+    <div class="glimpse-grid reveal">
+      <div class="glimpse-card">
+        <div class="glimpse-dot"></div>
+        <p>לקום בבוקר עם יותר בהירות לגבי הכיוון המקצועי והאישי שלך.</p>
+      </div>
+      <div class="glimpse-card">
+        <div class="glimpse-dot"></div>
+        <p>להרגיש שוב ביטחון ביכולות ובחוזקות שלך.</p>
+      </div>
+      <div class="glimpse-card">
+        <div class="glimpse-dot"></div>
+        <p>לבנות שגרה וחיים שמרגישים שלך, לא רק של המשפחה.</p>
+      </div>
+      <div class="glimpse-card">
+        <div class="glimpse-dot"></div>
+        <p>ליצור קשרים, שייכות ותחושת בית במקום החדש.</p>
+      </div>
+      <div class="glimpse-card">
+        <div class="glimpse-dot"></div>
+        <p>לקבל החלטות מתוך בחירה ולא רק מתוך תגובה לנסיבות.</p>
+      </div>
+      <div class="glimpse-card">
+        <div class="glimpse-dot"></div>
+        <p>להרגיש שאת לא רק הסתגלת למעבר – אלא באמת יצרת לעצמך חיים חדשים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== TRANSFORMATION ===== -->
 <section class="section">
   <div class="container">
     <div class="section-head center reveal">
       <div class="eyebrow" style="justify-content:center">האפשרות שבתוך השינוי</div>
-      <h2>מה אפשר ליצור מחדש בתקופה הזאת?</h2>
+      <h2>עם מה תוכלי לצאת מהתהליך?</h2>
     </div>
+    <p class="outcome-intro reveal">לא כל התשובות מגיעות מיד. אבל בתוך תקופת מעבר אפשר להתחיל לבנות מחדש עוגנים של זהות, כיוון ומשמעות – ולצאת עם בהירות גדולה יותר לגבי החיים שאת רוצה ליצור מכאן.</p>
     <div class="outcomes reveal">
       <div class="outcome">
-        <div class="outcome-num">01</div>
-        <div><h3>בהירות</h3><p>בהירות לגבי מי שאת היום, ולאן את רוצה להמשיך מכאן – לא לפי מה שהיה, אלא לפי מה שנכון עכשיו.</p></div>
+        <div class="outcome-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="14.5" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="5.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.5" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="4.4" x2="6.8" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13.2" y1="13.2" x2="15.6" y2="15.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15.6" y1="4.4" x2="13.2" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="15.6" x2="6.8" y2="13.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div><h3>בהירות לגבי הצעד הבא</h3><p>לצאת עם הבנה ברורה יותר של מי שאת היום, מה חשוב לך עכשיו, ולאן את רוצה להמשיך מכאן.</p></div>
       </div>
       <div class="outcome">
-        <div class="outcome-num">02</div>
-        <div><h3>חיבור מחדש</h3><p>חיבור מחדש לחוזקות, לשאיפות ולדברים שבאמת מניעים אותך – אחרי תקופה שבה היה קל לאבד אותם מהמבט.</p></div>
+        <div class="outcome-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="14.5" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="5.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.5" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="4.4" x2="6.8" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13.2" y1="13.2" x2="15.6" y2="15.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15.6" y1="4.4" x2="13.2" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="15.6" x2="6.8" y2="13.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div><h3>ביטחון בקבלת החלטות</h3><p>לקבל החלטות מתוך בחירה מודעת, גם כשהעתיד עדיין לא לגמרי ברור.</p></div>
       </div>
       <div class="outcome">
-        <div class="outcome-num">03</div>
-        <div><h3>פרק מקצועי חדש</h3><p>בנייה של כיוון מקצועי שמתאים לחיים שלך כמו שהם נראים עכשיו – ולא ניסיון להתאים את עצמך לתפקיד שכבר לא קיים.</p></div>
+        <div class="outcome-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="14.5" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="5.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.5" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="4.4" x2="6.8" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13.2" y1="13.2" x2="15.6" y2="15.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15.6" y1="4.4" x2="13.2" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="15.6" x2="6.8" y2="13.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div><h3>כיוון מקצועי חדש</h3><p>לבנות כיוון מקצועי שמתאים לחיים שאת חיה היום, ולא לנסות לחזור בהכרח לחיים שהשארת מאחור.</p></div>
       </div>
       <div class="outcome">
-        <div class="outcome-num">04</div>
-        <div><h3>ביטחון עצמי</h3><p>לבנות מחדש ביטחון עצמי שאינו תלוי בתפקיד, במעמד או בהכרה חיצונית – אלא במי שאת באמת.</p></div>
+        <div class="outcome-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="14.5" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="5.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.5" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="4.4" x2="6.8" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13.2" y1="13.2" x2="15.6" y2="15.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15.6" y1="4.4" x2="13.2" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="15.6" x2="6.8" y2="13.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div><h3>חיבור מחדש לעצמך</h3><p>להיזכר בחוזקות, בניסיון וביכולות שכבר קיימים בך – גם אם בתקופה האחרונה היה קשה לראות אותם.</p></div>
       </div>
       <div class="outcome">
-        <div class="outcome-num">05</div>
-        <div><h3>חיים עם משמעות</h3><p>יצירת חיים שיש בהם מקום, זמן ומשמעות גם בשבילך – לא רק בשביל כל מי שאת דואגת לו.</p></div>
+        <div class="outcome-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="14.5" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="5.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.5" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="4.4" x2="6.8" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13.2" y1="13.2" x2="15.6" y2="15.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15.6" y1="4.4" x2="13.2" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="15.6" x2="6.8" y2="13.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div><h3>חיים שיש בהם מקום גם לך</h3><p>לבנות שגרה וחיים שמאפשרים מקום לרצונות, לשאיפות ולצרכים שלך – לא רק לצרכים של כולם סביבך.</p></div>
       </div>
       <div class="outcome">
-        <div class="outcome-num">06</div>
-        <div><h3>שייכות</h3><p>בניית תחושת שייכות במקום החדש – לקהילה, לאנשים ולחיים שאת יוצרת לעצמך, גם כשהכול עדיין מרגיש זר.</p></div>
+        <div class="outcome-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="2" x2="10" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="14.5" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="5.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.5" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="4.4" x2="6.8" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13.2" y1="13.2" x2="15.6" y2="15.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15.6" y1="4.4" x2="13.2" y2="6.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.4" y1="15.6" x2="6.8" y2="13.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div><h3>תחושת שייכות חדשה</h3><p>להתחיל ליצור תחושת בית, קהילה ושייכות במקום החדש, בדרך שמתאימה לך.</p></div>
       </div>
     </div>
   </div>
@@ -684,17 +863,12 @@
     </div>
     <div class="founder-text reveal">
       <div class="eyebrow">נעים להכיר</div>
-      <h2>הסיפור הקצר שלי, ולמה אני עושה את זה</h2>
+      <h2>הסיפור שלי, ולמה אני עושה את זה</h2>
       <p>לפני שהתחלתי ללוות נשים בתקופות מעבר, עברתי לא מעט כאלה בעצמי.</p>
-      <p>במשך שנים בניתי קריירה בעולם הטכנולוגיה – כמנהלת מוצר, ובהמשך כ-VP Product בחברות תוכנה גדולות וקטנות. קריירה שאהבתי, ושבניתי בקפידה.</p>
-      <p>ואז עזבתי הכול ועברנו לארצות הברית – לרילוקיישן בעקבות הקריירה של בן זוגי, עם שני ילדים קטנים ושלישי שנולד שם.</p>
-      <p>שם למדתי מקרוב מה זה להתחיל מחדש במקום שבו אף אחד לא מכיר אותך. מה זה להגדיר מחדש את הזהות המקצועית שלך, למצוא מחדש את המקום שלך, ולגלות מי את כשכל מה שהיה מוכר נשאר מאחור.</p>
-      <p>לפני שחזרנו לארץ, בחרנו לצאת להרפתקה אחרת לגמרי: עזבנו הכול והפלגנו עם המשפחה במשך כמעט שנתיים בקאריביים.</p>
-      <p>בלי משרד. בלי תפקיד. בלי תכנית ברורה.</p>
-      <p>זה היה מסע מופלא – ובסופו חיכתה לנו עוד התחלה חדשה: חזרה לישראל, והזדמנות נוספת לשאול את עצמי: מי אני עכשיו, ואיך אני רוצה שהפרק הבא שלי ייראה?</p>
-      <p>למדתי, שוב ושוב, שהמעברים הגדולים של החיים יכולים להיות גם נקודת אובדן – וגם הזדמנות נדירה לצמיחה.</p>
-      <p>היום, כמאמנת מוסמכת, אני מלווה נשים בתקופות המעבר הגדולות של החיים, כדי לעזור להן לבנות את הפרק הבא שלהן בבהירות, באומץ ובדרך שמתאימה להן באמת.</p>
-      <p>בלי הנחות מוקדמות על מי שאת אמורה להיות. ובלי לוותר על מי שאת באמת.</p>
+      <p>במשך שנים בניתי קריירה בעולם הטכנולוגיה וניהלתי מוצרים וצוותים בחברות גלובליות. ואז עברנו לארצות הברית בעקבות הקריירה של בן זוגי – מעבר שדרש ממני לעצור לרגע את המסלול המקצועי שבניתי, ולהתחיל לשאול שאלות חדשות על זהות, משמעות והמשך הדרך.</p>
+      <p>לצד ההתרגשות וההזדמנויות, גיליתי עד כמה מעבר למדינה חדשה יכול לערער תחושת זהות, שייכות וכיוון. מצאתי את עצמי שואלת שאלות שלא עסקתי בהן שנים: מי אני היום? מה חשוב לי עכשיו? ואיך אני רוצה שייראה הפרק הבא בחיי?</p>
+      <p>לפני שחזרנו לישראל, יצאנו להרפתקה משפחתית של כמעט שנתיים בקאריביים. להפתעתי, דווקא החזרה לארץ חידדה עבורי שגם רילוקיישן חוזר הוא מעבר משמעותי, שמביא איתו שאלות, אתגרים – וגם הזדמנות לבנייה מחדש.</p>
+      <p>היום, לצד ייעוץ בניהול מוצר לחברות תוכנה, אני מלווה כמאמנת מוסמכת א.נשים בתהליכי שינוי, צמיחה ודיוק אישי. אני מאמינה שמעברים גדולים, למרות הטלטלה שהם מביאים איתם, יכולים להפוך להזדמנות לעצור, לדייק ולבנות מחדש חיים שמתאימים למי שאנחנו היום.</p>
     </div>
   </div>
 </section>
@@ -703,8 +877,10 @@
 <section class="section bg-ocean" id="waitlist">
   <div class="container waitlist-wrap">
     <div class="eyebrow" style="justify-content:center; color:var(--ocean-pale)">לפני שזה נפתח לכולן</div>
-    <h2 class="reveal">אני בונה בימים אלה תוכנית ראשונה לנשים ברילוקיישן</h2>
-    <p class="reveal">אם הדברים שכתובים כאן מדברים אלייך – אשמח לשמוע ממך. זה עוזר לי לבנות תוכנית שעונה למה שאת באמת צריכה, ולא למה שאני מנחשת שאת צריכה.</p>
+    <h2 class="reveal">בימים אלה אני בונה את המחזור הראשון של ״מעבר״</h2>
+    <p class="reveal">אם משהו במה שקראת נגע בך, אפשר לקבל עדכון כשהמחזור הראשון ייפתח.</p>
+    <p class="reveal">לפעמים שיחה אחת היא בדיוק המקום שממנו מתחילים,</p>
+    <p class="reveal">ואם את מעדיפה להמשיך איתי את השיחה? <a href="https://wa.me/972542801725?text=%D7%94%D7%99%D7%99%20%D7%93%D7%A8%D7%99%D7%94%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%A2%D7%9C%20%D7%9E%D7%A2%D7%91%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%99%D7%95%D7%AA%D7%A8" target="_blank" rel="noopener" class="wa-inline-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.057 23.428a.75.75 0 0 0 .915.915l5.565-1.474A11.951 11.951 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.523-5.222-1.432l-.374-.222-3.873 1.026 1.026-3.874-.221-.373A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>אני כאן</a></p>
 
     <div class="form-card reveal">
       <!--
@@ -733,8 +909,8 @@
           <label for="message">מה הכי מדבר אלייך בעמוד הזה? (לא חובה)</label>
           <textarea id="message" name="message" placeholder="כמה מילים, אם בא לך לשתף..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">הצטרפי לרשימת ההמתנה</button>
-        <p class="form-micro">בלי ספאם. רק עדכון אחד אישי, כשהתוכנית תיפתח.</p>
+        <button type="submit" class="btn btn-primary">אני רוצה לקבל עדכון כשהמחזור הראשון ייפתח</button>
+        <p class="form-micro">אעדכן כשיהיה משהו ששווה לשתף.</p>
       </form>
 
       <div class="thanks" id="thanksMsg">
@@ -742,8 +918,8 @@
           <circle cx="26" cy="26" r="25" stroke="#3B5563" stroke-width="2"/>
           <path d="M15 27L22 34L37 18" stroke="#3B5563" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <h3>תודה שסיפרת לי על עצמך</h3>
-        <p>נרשמת בהצלחה. כשהתוכנית תיפתח, תהיי הראשונה לדעת.</p>
+        <h3>תודה שהצטרפת.</h3>
+        <p>אעדכן אותך כשיהיה משהו חדש לשתף, ותהיי בין הראשונות לשמוע כשהמחזור הראשון של ״מעבר״ ייפתח.</p>
       </div>
     </div>
   </div>
@@ -783,7 +959,7 @@
 <footer>
   <div class="container">
     <div class="footer-logo">מעבר</div>
-    <p>מרחב לנשים ברילוקיישן · נבנה בכוונה, לאט ובאהבה.</p>
+    <p>מרחב לנשים ברילוקיישן · נבנה בכוונה ובאהבה.</p>
     <p><a href="mailto:darya@datayoga.io">darya@datayoga.io</a></p>
     <p>© 2026 מעבר. כל הזכויות שמורות.</p>
   </div>
